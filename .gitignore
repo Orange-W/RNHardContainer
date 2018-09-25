@@ -75,4 +75,4 @@ Duobao/Libraries/UrsLogin/NELoginSDK.bundle/productPrivateKey.p12
 .DS_Store
 
 ## others
-react/
+node_modules/

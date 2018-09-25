@@ -1,0 +1,26 @@
+{
+  "name": "MyReactNativeApp",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "fishhookinstall": "sed -i '' 's#<fishhook/fishhook.h>#\"fishhook.h\"#g' ./node_modules/react-native/Libraries/WebSocket/RCTReconnectingWebSocket.m",
+    "postinstall": "sed -i '' 's/#import <RCTAnimation\\/RCTValueAnimatedNode.h>/#import \"RCTValueAnimatedNode.h\"/' ./node_modules/react-native/Libraries/NativeAnimation/RCTNativeAnimatedNodesManager.h",
+    "fixbug": "npm run fishhookinstall\nnpm run postinstall",
+    "iosbundle": "bundle=./bundle/ios\nreact-native bundle --platform ios --assets-dest ${bundle} --dev false --entry-file index.js --bundle-output ${bundle}/main.jsbundle"
+  },
+  "dependencies": {
+    "eslint": "^4.0.0",
+    "prop-types": "^15.0.0",
+    "react": "^16.4.1",
+    "react-native": "^0.56.0",
+    "react-native-art-svg": "^2.0.0",
+    "react-native-update": "^5.1.2",
+    "react-navigation": "^2.11.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.6",
+    "eslint-plugin-react": "^7.10.0",
+    "g": "^2.0.1"
+  }
+}
