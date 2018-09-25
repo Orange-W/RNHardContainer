@@ -1,0 +1,129 @@
+platform :ios, '9.0'
+inhibit_all_warnings!
+source "git@git.mail.netease.com:iOS/Specs.git"
+source "https://github.com/CocoaPods/Specs.git"
+
+def import_essential_pods
+    # 布局
+    pod 'SnapKit'
+    # 资源
+    pod 'R.swift'
+end
+
+def import_Debug
+    pod 'netfox', :configurations => ['Debug']
+end
+
+def import_RN
+    # React-Native
+    pod 'React', :path => '../react/node_modules/react-native', :subspecs => [
+        'ART',
+        'Core',
+        'CxxBridge',
+        #'BatchedBridge',
+        'DevSupport', # Include this to enable In-App Devmenu if RN >= 0.43
+        'RCTText',
+        'RCTLinkingIOS',
+        'RCTNetwork',
+        'RCTWebSocket', # needed for debugging
+        'RCTAnimation',
+        'RCTImage',
+        # Add any other subspecs you want to use in your project
+    ]
+
+    # Explicitly include Yoga if you are using RN >= 0.42.0
+    pod 'yoga', :path => '../react/node_modules/react-native/ReactCommon/yoga'
+
+    # Third party deps podspec link
+    pod 'DoubleConversion', :podspec => '../react/node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
+    pod 'glog', :podspec => '../react/node_modules/react-native/third-party-podspecs/glog.podspec'
+    pod 'Folly', :podspec => '../react/node_modules/react-native/third-party-podspecs/Folly.podspec'
+end
+
+target 'ReactNativeContainer' do
+    use_frameworks!
+    import_essential_pods
+    import_Debug
+    import_RN
+
+    target 'ReactNativeContainerUITests' do
+        inherit! :search_paths
+        # Pods for testing
+    end
+
+
+end
+
+
+#post_install do |installer|
+#    installer.pods_project.targets.each do |target|
+#        #        if target.name == '<insert target name of your pod here>'
+#        #            target.build_configurations.each do |config|
+#        #                config.build_settings['SWIFT_VERSION'] = '3.0'
+#        #            end
+#        #        endO
+#
+#        target.build_configurations.each do |config|
+#            # swift4Pods = ['AppBase', 'Siesta', 'Socket.IO-Client-Swift', 'RxCocoa', 'RxSwift', 'CryptoSwift', 'SnapKit']
+#            swift3Pods = []
+#            if swift3Pods.include?(target.name)
+#                print "Changing " + target.name + " swift version to 3.0\n"
+#                config.build_settings['SWIFT_VERSION'] = '3.0'
+#            end
+#
+#        end
+#    end
+#end
+
+## 修复RN0.55的 bug
+#def change_lines_in_file(file_path, &change)
+#    print "Fixing #{file_path}...\n"
+#
+#    contents = []
+#
+#    file = File.open(file_path, 'r')
+#    file.each_line do | line |
+#        contents << line
+#    end
+#    file.close
+#
+#    File.open(file_path, 'w') do |f|
+#        f.puts(change.call(contents))
+#    end
+#end
+#
+#post_install do |installer|
+#    # https://github.com/facebook/yoga/issues/711#issuecomment-381098373
+#    change_lines_in_file('./Pods/Target Support Files/yoga/yoga-umbrella.h') do |lines|
+#        lines.reject do | line |
+#            [
+#            '#import "Utils.h"',
+#            '#import "YGLayout.h"',
+#            '#import "YGNode.h"',
+#            '#import "YGNodePrint.h"',
+#            '#import "YGStyle.h"',
+#            '#import "Yoga-internal.h"',
+#            ].include?(line.strip)
+#        end
+#    end
+#
+#    # https://github.com/facebook/yoga/issues/711#issuecomment-374605785
+#    change_lines_in_file('./react/node_modules/react-native/React/Base/Surface/SurfaceHostingView/RCTSurfaceSizeMeasureMode.h') do |lines|
+#        unless lines[27].include?("#ifdef __cplusplus")
+#            lines.insert(27, "#ifdef __cplusplus")
+#            lines.insert(34, "#endif")
+#        end
+#        lines
+#    end
+#
+#    # https://github.com/facebook/react-native/issues/13198
+#    change_lines_in_file('./react/node_modules/react-native/Libraries/NativeAnimation/RCTNativeAnimatedNodesManager.h') do |lines|
+#        lines.map { |line| line.include?("#import <RCTAnimation/RCTValueAnimatedNode.h>") ? '#import "RCTValueAnimatedNode.h"' : line }
+#    end
+#
+#    # https://github.com/facebook/react-native/issues/16039
+#    change_lines_in_file('./react/node_modules/react-native/Libraries/WebSocket/RCTReconnectingWebSocket.m') do |lines|
+#        lines.map { |line| line.include?("#import <fishhook/fishhook.h>") ? '#import "fishhook.h"' : line }
+#    end
+#end
+
