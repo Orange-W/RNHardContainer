@@ -6,51 +6,51 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.4)
-  - netfox (1.11.1)
+  - netfox (1.12.1)
   - R.swift (4.0.0):
     - R.swift.Library (~> 4.0.0)
   - R.swift.Library (4.0.0)
-  - React/ART (0.56.0):
+  - React/ART (0.56.1):
     - React/Core
-  - React/Core (0.56.0):
-    - yoga (= 0.56.0.React)
-  - React/CxxBridge (0.56.0):
+  - React/Core (0.56.1):
+    - yoga (= 0.56.1.React)
+  - React/CxxBridge (0.56.1):
     - Folly (= 2016.10.31.00)
     - React/Core
     - React/cxxreact
-  - React/cxxreact (0.56.0):
+  - React/cxxreact (0.56.1):
     - boost-for-react-native (= 1.63.0)
     - Folly (= 2016.10.31.00)
     - React/jschelpers
     - React/jsinspector
-  - React/DevSupport (0.56.0):
+  - React/DevSupport (0.56.1):
     - React/Core
     - React/RCTWebSocket
-  - React/fishhook (0.56.0)
-  - React/jschelpers (0.56.0):
+  - React/fishhook (0.56.1)
+  - React/jschelpers (0.56.1):
     - Folly (= 2016.10.31.00)
     - React/PrivateDatabase
-  - React/jsinspector (0.56.0)
-  - React/PrivateDatabase (0.56.0)
-  - React/RCTAnimation (0.56.0):
+  - React/jsinspector (0.56.1)
+  - React/PrivateDatabase (0.56.1)
+  - React/RCTAnimation (0.56.1):
     - React/Core
-  - React/RCTBlob (0.56.0):
+  - React/RCTBlob (0.56.1):
     - React/Core
-  - React/RCTImage (0.56.0):
+  - React/RCTImage (0.56.1):
     - React/Core
     - React/RCTNetwork
-  - React/RCTLinkingIOS (0.56.0):
+  - React/RCTLinkingIOS (0.56.1):
     - React/Core
-  - React/RCTNetwork (0.56.0):
+  - React/RCTNetwork (0.56.1):
     - React/Core
-  - React/RCTText (0.56.0):
+  - React/RCTText (0.56.1):
     - React/Core
-  - React/RCTWebSocket (0.56.0):
+  - React/RCTWebSocket (0.56.1):
     - React/Core
     - React/fishhook
     - React/RCTBlob
-  - SnapKit (4.0.0)
-  - yoga (0.56.0.React)
+  - SnapKit (4.0.1)
+  - yoga (0.56.1.React)
 
 DEPENDENCIES:
   - DoubleConversion (from `../react/node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
@@ -96,13 +96,13 @@ SPEC CHECKSUMS:
   DoubleConversion: a9706f16e388b53ff12cca34473428ee29746a26
   Folly: c89ac2d5c6ab169cd7397ef27485c44f35f742c7
   glog: b3b0330915eccea41c5cc9731a77cf564a9be5ea
-  netfox: 5230196df3ca093a9418e079eb6e8f3776f15d14
+  netfox: 21a2a441f64bdb6c611d1b7417d27d4abb424d5c
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
   React: 1fe0eb13d90b625d94c3b117c274dcfd2e760e11
-  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
 
-PODFILE CHECKSUM: d9e7c51845432b6e1ecfedc69a73c1c0694af76a
+PODFILE CHECKSUM: 6f1eea5f662d4d8ad562453d7449f541cd3638bd
 
 COCOAPODS: 1.5.3

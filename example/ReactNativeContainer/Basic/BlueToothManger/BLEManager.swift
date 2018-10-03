@@ -26,6 +26,25 @@ enum BLECentralState: Int {
     case unauthorized
     case poweredOff
     case poweredOn
+
+    var desc: String {
+        var desc = ""
+        switch self {
+        case .unknown:
+            desc = "unknown"
+        case .resetting:
+            desc = "resetting"
+        case .unsupported: // 不支持BLE
+            desc = "unsupported"
+        case .unauthorized:
+            desc = "unauthorized"
+        case .poweredOff:
+            desc = "poweredOff"
+        case .poweredOn:
+            desc = "poweredOn"
+        }
+        return desc
+    }
 }
 
 let BLEQueueName = "BLEMangerQueue"
@@ -162,7 +181,12 @@ class BLEManager: NSObject, CBCentralManagerDelegate {
         }
 
         DispatchQueue.runInMainQueue {
-            // .UpdateBluetoothState
+            // UpdateBluetoothState
+
+            EventEmitter.sharedInstance.dispatch(name: "UpdateBluetoothState", body: [
+                "state": state.desc,
+                "enable": state == .poweredOn,
+                ])
         }
     }
 
@@ -174,20 +198,10 @@ class BLEManager: NSObject, CBCentralManagerDelegate {
         DispatchQueue.runInMainQueue {
            // DiscoverPeripheral
             EventEmitter.sharedInstance.dispatch(name: "DiscoverPeripheral", body: [
-                "peripheral": peripheral.identifier.uuid,
+                "peripheral": peripheral.objectDict,
                 "advertisementData": advertisementData,
                 "RSSI": RSSI
                 ])
-//            if let reactView = getTopVC()?.view as? RCTRootView {
-////                reactView.bridge.eventDispatcher()?.send
-//                let sender = BLERNEventSender()
-//                sender.bridge = reactView.bridge
-//                sender.sendEvent(withName: "DiscoverPeripheral", body: [
-//                    "peripheral": peripheral.identifier.uuid,
-//                    "advertisementData": advertisementData,
-//                    "RSSI": RSSI
-//                    ])
-//            }
         }
     }
 
@@ -199,6 +213,9 @@ class BLEManager: NSObject, CBCentralManagerDelegate {
         peripheraManager.addConnected(peripheral)
         DispatchQueue.runInMainQueue {
             // Connected
+            EventEmitter.sharedInstance.dispatch(name: "Connected", body: [
+                "peripheral": peripheral.objectDict,
+                ])
         }
     }
 
@@ -208,6 +225,9 @@ class BLEManager: NSObject, CBCentralManagerDelegate {
         print("---BlueTooth Disconnect---\n连接中断:\(String(describing: error))")
         DispatchQueue.runInMainQueue {
             // Disconnected
+            EventEmitter.sharedInstance.dispatch(name: "Disconnected", body: [
+                "peripheral": peripheral.objectDict,
+                ])
         }
     }
 
@@ -222,6 +242,9 @@ class BLEManager: NSObject, CBCentralManagerDelegate {
     internal func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
         DispatchQueue.runInMainQueue {
             // FailToConnect
+            EventEmitter.sharedInstance.dispatch(name: "FailToConnect", body: [
+                "peripheral": peripheral.objectDict,
+                ])
         }
     }
 

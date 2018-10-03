@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		36099CC39E6B9BCE3913635C /* Pods_ReactNativeContainer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BE0AA6C352906BCDF3BA686 /* Pods_ReactNativeContainer.framework */; };
 		409A5B1CF3592532B2340D7B /* Pods_ReactNativeContainerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDD7A8F738DD6636EC56A0CA /* Pods_ReactNativeContainerUITests.framework */; };
+		B531A4282164DB2E00B1023A /* Bluetooth+ObjectDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = B531A4272164DB2E00B1023A /* Bluetooth+ObjectDict.swift */; };
 		C23DF0E021535EA800CC9D7C /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23DF0CD21535EA800CC9D7C /* BLEManager.swift */; };
 		C23DF0E121535EA800CC9D7C /* BLEPeripheraHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23DF0CE21535EA800CC9D7C /* BLEPeripheraHandler.swift */; };
 		C23DF0E221535EA800CC9D7C /* BLEPeripheraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23DF0CF21535EA800CC9D7C /* BLEPeripheraManager.swift */; };
@@ -41,6 +42,7 @@
 		9BE0AA6C352906BCDF3BA686 /* Pods_ReactNativeContainer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReactNativeContainer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC889DE3E9713B918E77250 /* Pods-ReactNativeContainerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeContainerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReactNativeContainerUITests/Pods-ReactNativeContainerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A1AFB978061541C14B28EC97 /* Pods-ReactNativeContainer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeContainer.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReactNativeContainer/Pods-ReactNativeContainer.release.xcconfig"; sourceTree = "<group>"; };
+		B531A4272164DB2E00B1023A /* Bluetooth+ObjectDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bluetooth+ObjectDict.swift"; sourceTree = "<group>"; };
 		C23DF0CD21535EA800CC9D7C /* BLEManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
 		C23DF0CE21535EA800CC9D7C /* BLEPeripheraHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEPeripheraHandler.swift; sourceTree = "<group>"; };
 		C23DF0CF21535EA800CC9D7C /* BLEPeripheraManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEPeripheraManager.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				C23DF0CE21535EA800CC9D7C /* BLEPeripheraHandler.swift */,
 				C23DF0CF21535EA800CC9D7C /* BLEPeripheraManager.swift */,
 				C27A94572150BE1500ECB710 /* RNExport.m */,
+				B531A4272164DB2E00B1023A /* Bluetooth+ObjectDict.swift */,
 			);
 			path = BlueToothManger;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				C23DF0EE21535FB500CC9D7C /* DispatchQueue+Block.swift in Sources */,
 				C23DF0E121535EA800CC9D7C /* BLEPeripheraHandler.swift in Sources */,
 				C2B63F5F21298D5900C16A78 /* AppDelegate.swift in Sources */,
+				B531A4282164DB2E00B1023A /* Bluetooth+ObjectDict.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
